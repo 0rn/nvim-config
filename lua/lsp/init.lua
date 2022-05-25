@@ -73,10 +73,12 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>lf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
+    --[[
     if client.supports_method "textDocument/formatting" then
-        utils.buf_command(bufnr, "LspFormatting", function()
-            lsp_formatting(bufnr)
-        end)
+        -- doesnt work
+        --utils.buf_command(bufnr, "LspFormatting", function()
+        --    lsp_formatting(bufnr)
+        --end)
 
         vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -85,6 +87,7 @@ local on_attach = function(client, bufnr)
             command = "LspFormatting",
         })
     end
+    ]]--
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

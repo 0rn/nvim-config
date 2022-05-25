@@ -57,6 +57,7 @@ return packer.startup(function(use)
 
     -- Syntax
     use { "alaviss/nim.nvim" }
+    use { "bfrg/vim-cpp-modern" }
     --[[
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -89,7 +90,7 @@ return packer.startup(function(use)
     ]]--
     --use { "lukas-reineke/indent-blankline.nvim", config = 'require "plugins.configs.indent"' }
     --use { "windwp/nvim-autopairs", config = require "plugins.configs.autopairs" }
-    --use { "tpope/vim-surround" }
+    use { "tpope/vim-surround" }
     use { "norcalli/nvim-colorizer.lua", config = 'require "plugins.configs.colorizer"' }
 
     -- LSP

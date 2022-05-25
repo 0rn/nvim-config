@@ -13,6 +13,8 @@ local opts = {
 }
 
 wk.register({
+    ["D"] = {"diw", "Delete entire word"},
+
     ["<leader>]"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
     ["<leader>["] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
     ["<leader>q"] = { "<cmd>bd<cr>", "[BUFFER] Close current buffer" },

@@ -77,13 +77,13 @@ cmp.setup {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-q>"] = cmp.mapping.close(),
         ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
+            -- prio: expand, select next cmp, jump
+            if luasnip.expandable() then
+                luasnip.expand()
+            elseif cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                --vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
-                luasnip.expand_or_jump()
-            elseif has_words_before() then
-                cmp.complete()
+            elseif luasnip.jumpable(1) then
+                luasnip.jump(1)
             else
                 fallback()
             end
@@ -93,8 +93,6 @@ cmp.setup {
                 cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
                 luasnip.jump(-1)
-                --vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(luasnip-jump-prev)", true, true, true), "")
-                --vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
             else
                 fallback()
             end
@@ -111,6 +109,9 @@ cmp.setup {
     }),
     --preselect = cmp.PreselectMode.None,
 }
+
+-- load snippets
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 --[[
 cmp.setup.cmdline("/", {
