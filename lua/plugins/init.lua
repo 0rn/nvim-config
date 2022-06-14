@@ -56,8 +56,10 @@ return packer.startup(function(use)
     ]]--
 
     -- Syntax
-    use { "alaviss/nim.nvim" }
+    -- use { "alaviss/nim.nvim" }
     use { "bfrg/vim-cpp-modern" }
+    --use { "0rn/nim_syntax.vim" }
+    use "~/Programming/nim/syntax"
     --[[
     use {
         "nvim-treesitter/nvim-treesitter",

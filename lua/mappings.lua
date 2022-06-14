@@ -14,10 +14,38 @@ local opts = {
 
 wk.register({
     ["D"] = {"diw", "Delete entire word"},
+    ["C"] = {"ciw", "Change entire word"},
 
-    ["<leader>]"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
-    ["<leader>["] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
-    ["<leader>q"] = { "<cmd>bd<cr>", "[BUFFER] Close current buffer" },
+    -- leader commands
+    ["<leader>"] = {
+        name = "Leader commands",
+        q = { "<cmd>bd<cr>", "[BUFFER] Close current buffer" },
+        ["]"] = { "<cmd>bn<cr>", "[BUFFER] Go previous buffer" },
+        ["["] = { "<cmd>bp<cr>", "[BUFFER] Go next buffer" },
+        -- lsp labels
+        -- TODO: finish this and move to lsp config
+        -- (to only enable when lsp is enabled?)
+        e = "Open diaginostics",
+
+
+        l = {
+            name = "LSP extended ->",
+            p = "Prev diagnostic",
+            n = "Next diagnostic",
+            r = "Rename buffer",
+            c = "Code action",
+            f = "Format",
+        },
+    },
+    -- just labels, defined in cmp
+    -- TODO: find a way to do this there??
+    --["<C-d>"] = "Scroll docs down",
+    ["<C-f>"] = "Scroll docs down",
+    ["<C-Space>"] = "Open completion window",
+    ["<C-q>"] = "Close completion window",
+
+    ["gd"] = "Go to definition",
+    ["gD"] = "Get declaration",
 
     --["<c-n>"] = { "<cmd>NvimTreeToggle<cr> <cmd>NvimTreeRefresh<cr>", "[NVIMTREE] Toggle" },
 
@@ -39,5 +67,19 @@ wk.register({
     },
     ]]--
 }, opts)
+
+local topts = {
+    mode = "t",
+    prefix = "",
+    silent = true,
+    noremap = true,
+    --nowait = true,
+}
+
+--wk.register({
+    --["<Esc>"] = {"<C-\\><C-n>", "Change to normal mode"},
+--}, opts)
+
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {silent = true, noremap = true})
 
 wk.setup {}
