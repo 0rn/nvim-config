@@ -6,7 +6,9 @@ return {
         -- make sure to load this before all the other start plugins
         priority = 1000,
         config = function()
-            -- load the colorscheme here
+            require("tokyonight").setup({
+                transparent = (vim.fn.hostname() == "axe"),
+            })
             vim.cmd([[colorscheme tokyonight]])
         end,
     },
