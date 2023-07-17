@@ -1,6 +1,7 @@
 local utils = require "utils"
 
 vim.g.mapleader = " "
+vim.o.guifont = "NotoSansM Nerd Font Mono:h24:#e-subpixelantialias"
 
 vim.cmd [[set fcs=eob:\ ]]
 --vim.cmd [[filetype plugin indent on]]
