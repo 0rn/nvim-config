@@ -30,7 +30,21 @@ return {
             --{ "s", "<cmd>WhichKey<cr>", mode = "v", desc = "Open which-key" },
         }
     },
+    -- UTIL
+    {
+        "RaafatTurki/hex.nvim",
+        lazy = false,
+        config = function(_)
+            require("hex").setup()
+        end,
+    },
     
     -- LANGUAGES
-	"baabelfish/nvim-nim",
+    {
+        "baabelfish/nvim-nim",
+        event = "BufReadPre *.nim",
+        keys = {
+            {"<F5>", "<cmd>!nim --hints:off r %<cr>", desc = "Run nim file"},
+        }
+    },
 }

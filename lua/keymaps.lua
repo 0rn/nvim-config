@@ -8,8 +8,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Buffers
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 
 -- Better D and C
 map("n", "D", "diw", { desc = "Delete entire word" })
@@ -24,6 +24,8 @@ map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
+-- open diagnostics window
+map("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open Diagnostics Pane" })
 
 -- Add undo break-points
 map("i", ",", ",<c-g>u")
@@ -36,5 +38,5 @@ map("v", ">", ">gv")
 
 -- tabs
 map("n", "<c-tab>", "<cmd>tabnew<cr>", {desc = "New tab" })
-map("n", "[<tab>", "<cmd>tabnext<cr>", {desc = "Next tab" })
-map("n", "]<tab>", "<cmd>tabprevious<cr>", {desc = "Prev tab" })
+map("n", "]<tab>", "<cmd>tabnext<cr>", {desc = "Next tab" })
+map("n", "[<tab>", "<cmd>tabprevious<cr>", {desc = "Prev tab" })
