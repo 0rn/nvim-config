@@ -43,3 +43,6 @@ map("n", "[<tab>", "<cmd>tabprevious<cr>", {desc = "Prev tab" })
 
 -- copy
 map("v", "<c-c>", '"+y', {desc =  "Copy to clipboard" })
+
+-- terminal mode
+map("t", "<esc>", "<c-\\><c-n>", {desc = "Normal mode"})
