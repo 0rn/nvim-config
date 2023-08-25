@@ -40,3 +40,6 @@ map("v", ">", ">gv")
 map("n", "<c-tab>", "<cmd>tabnew<cr>", {desc = "New tab" })
 map("n", "]<tab>", "<cmd>tabnext<cr>", {desc = "Next tab" })
 map("n", "[<tab>", "<cmd>tabprevious<cr>", {desc = "Prev tab" })
+
+-- copy
+map("v", "<c-c>", '"+y', {desc =  "Copy to clipboard" })

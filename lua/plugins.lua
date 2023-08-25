@@ -38,6 +38,15 @@ return {
             require("hex").setup()
         end,
     },
+    {
+        "Apeiros-46B/qalc.nvim",
+        lazy = true,
+        config = function(_)
+            require("qalc").setup({})
+        end,
+        cmd = "Qalc",
+        event = "BufReadPre *.qalc",
+    },
     
     -- LANGUAGES
     {
